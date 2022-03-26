@@ -1,3 +1,15 @@
 export default class Grid {
-  constructor(){}
+  state;
+  constructor({ $target }){
+    this.$target = $target;
+  }
+
+  renderGrid() {
+    this.render();
+    
+  }
+
+  render() {
+
+  }
 }
