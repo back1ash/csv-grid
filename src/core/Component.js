@@ -10,4 +10,5 @@ class Component {
     this.mounted();
   }
   mounted() {}
+  setState() {}
 }
