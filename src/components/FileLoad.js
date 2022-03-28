@@ -1,7 +1,3 @@
-import papaparse from "papaparse";
-
-class FileLoad {
-  constructor(file) {
-    papaparse.parse 
-    }
+export default class FileLoad {
+  constructor() {}
 }
