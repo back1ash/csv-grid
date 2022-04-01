@@ -10,5 +10,6 @@ class Component {
     this.mounted();
   }
   mounted() {}
+  fileLoad() {}
   setState() {}
 }
