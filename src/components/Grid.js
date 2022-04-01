@@ -1,15 +1,15 @@
 export default class Grid {
-  state;
-  constructor({ $target }){
+  constructor($target) {
     this.$target = $target;
-  }
-
-  renderGrid() {
     this.render();
-    
   }
 
   render() {
-
+    const slickgrid = new Slick.Grid();
+    //   this.container,
+    //   this.rows,
+    //   this.columns,
+    //   this.options
+    slickgrid.render();
   }
 }
