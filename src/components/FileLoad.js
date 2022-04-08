@@ -1,6 +1,6 @@
 const MAXSIZE = 10 * 1024 * 1024;
-import { $ } from '../utils/selector.js';
-import { parse } from 'papaparse';
+import { $$ } from '../utils/selector.js';
+import Papa from 'papaparse';
 
 export default class FileLoad {
   constructor({ $target, fileLoad }) {
@@ -32,19 +32,19 @@ export default class FileLoad {
   }
 
   parsing(file) {
-    let data = [];
     let field = [];
-    parse(file, {
-      complete: function (csvdata) {
-        field.push(csvdata.data.splice(0, 1));
-        data.push(csvdata.data);
+    let data = [];
+    Papa.parse(file, {
+      complete: function (results) {
+        field.push(results.data.splice(0, 1));
+        data.push(results.data);
       },
     });
-    this.fileLoad(field, data);
+    this.fileLoad(file.name, field, data);
   }
 
   setEvent() {
-    $('[name=csvfile]').addEventListener('change', (e) => {
+    $$('[name=csvfile]').addEventListener('change', (e) => {
       this.extensionCheck(e.target);
     });
   }

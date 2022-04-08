@@ -1,9 +1,11 @@
 import FileLoad from './components/FileLoad.js';
+import DataGrid from './components/DataGrid.js';
 
 export default class App {
   constructor($target) {
     this.$target = $target;
     this.state = {
+      filename: '',
       field: [],
       data: [],
     };
@@ -23,14 +25,18 @@ export default class App {
       target: $('.form-control'),
       fileLoad: this.fileLoad,
     });
+    new DataGrid({
+      target: $('.grid-container'),
+      state: this.state,
+    });
   }
 
-  fileLoad = (csvfield, csvdata) => {
-    this.setState({ field: csvfield, data: csvdata });
+  fileLoad = (csvfile, csvfield, csvdata) => {
+    this.setState({ filename: csvfile, field: csvfield, data: csvdata });
   };
 
-  setState(nextState) {
+  setState = (nextState) => {
     this.state = { ...this.state, ...nextState };
     this.render();
-  }
+  };
 }
