@@ -1,4 +1,4 @@
-export default class DataGrid {
+export default class Grid {
   constructor({ $target, state }) {
     this.$target = $target;
     this.state = state;
@@ -32,7 +32,7 @@ export default class DataGrid {
         effortDriven: i % 5 == 0,
       };
     }
-    // console.log('data', data);
-    grid = new Slick.Grid('.grid-container', data, columns, options);
+
+    grid = new Slick.Grid('#myGrid', data, columns, options);
   }
 }

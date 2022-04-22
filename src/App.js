@@ -1,5 +1,5 @@
 import FileLoad from './components/FileLoad.js';
-import DataGrid from './components/DataGrid.js';
+import Grid from './components/Grid.js';
 
 export default class App {
   constructor($target) {
@@ -16,7 +16,7 @@ export default class App {
   render() {
     this.$target.innerHTML = `
     <input type="file" name="csvfile" class="form-control" id="formFile"/>
-    <div class="grid-container"></div>
+    <div id="myGrid"></div>
     `;
     this.mounted();
   }
@@ -25,7 +25,7 @@ export default class App {
       target: $('.form-control'),
       fileLoad: this.fileLoad,
     });
-    new DataGrid({
+    new Grid({
       target: $('.grid-container'),
       state: this.state,
     });
